@@ -36,6 +36,8 @@ var parseDate = d3.time.format("%d-%b-%y").parse,
     formatDate = d3.time.format("%d-%b-%y"),
     bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
+//https://github.com/d3/d3-time-format/blob/master/README.md#locale_format
+
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
@@ -51,7 +53,9 @@ var xAxis = d3.svg.axis().scale(x)
     .orient("bottom").ticks(5)
     .innerTickSize(-height)
     .outerTickSize(0)
-    .tickPadding(10);
+    .tickPadding(10)
+//	.tickFormat(d3.time.format("%Y-%m-%d")); //<== insert the tickFormat function
+	.tickFormat(d3.time.format("%d-%b")); //<== insert the tickFormat function
 
 
 
@@ -83,7 +87,7 @@ d3.csv("my_csv.csv", function(error, data) {
     data.forEach(function(d) {
         //d.date = parseDate(d.date);
         d.date = new Date(parseInt(d.date)*1000); //parseDate(d.date);
-        d.close = +d.close;
+        d.close = +d.close + 450000;
     });
 
     // Scale the range of the data
@@ -125,6 +129,16 @@ d3.csv("my_csv.csv", function(error, data) {
         .style("text-anchor", "end")
         .text("# operations");
    
+	svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Number of operations uploaded to our servers");
+
+
+
    // append the x line
     focus.append("line")
         .attr("class", "x")
@@ -185,6 +199,7 @@ d3.csv("my_csv.csv", function(error, data) {
         .on("mouseover", function() { focus.style("display", null); })
         .on("mouseout", function() { focus.style("display", "none"); })
         .on("mousemove", mousemove);
+
 
     function mousemove() {
 		var x0 = x.invert(d3.mouse(this)[0]),

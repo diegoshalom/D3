@@ -27,13 +27,13 @@ path {
 <script>
 
 // Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 20, bottom: 30, left: 50},
-    width = 600 - margin.left - margin.right,
-    height = 270 - margin.top - margin.bottom;
+var margin = {top: 30, right: 20, bottom: 40, left: 100},
+    width = 800 - margin.left - margin.right,
+    height = 470 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse,
-    formatDate = d3.time.format("%d-%b"),
+    formatDate = d3.time.format("%d-%b-%y"),
     bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 // Set the ranges
@@ -41,11 +41,20 @@ var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
 // Define the axes
-var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(5);
-
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(5);
+    .orient("left").ticks(10)
+    .innerTickSize(-width)
+    .outerTickSize(0)
+    .tickPadding(10);
+
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5)
+    .innerTickSize(-height)
+    .outerTickSize(0)
+    .tickPadding(10);
+
+
+
 
 // Define the line
 var valueline = d3.svg.line()
@@ -66,6 +75,9 @@ var lineSvg = svg.append("g");
 var focus = svg.append("g")
     .style("display", "none");
 
+
+
+
 // Get the data
 d3.csv("my_csv.csv", function(error, data) {
     data.forEach(function(d) {
@@ -76,7 +88,9 @@ d3.csv("my_csv.csv", function(error, data) {
 
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain([0, d3.max(data, function(d) { return d.close; })]);
+//    y.domain([  200000    , d3.max(data, function(d) { return d.close; })]);
+    y.domain([  d3.min(data, function(d) { return d.close; })    , d3.max(data, function(d) { return d.close; })]);
+
 
     // Add the valueline path.
     lineSvg.append("path")
@@ -94,6 +108,23 @@ d3.csv("my_csv.csv", function(error, data) {
         .attr("class", "y axis")
         .call(yAxis);
 
+    // Add the text label for the X axis
+    svg.append("text")
+        .attr("transform",
+              "translate(" + (width/2) + " ," + 
+                             (height+margin.bottom) + ")")
+        .style("text-anchor", "middle")
+        .text("Date");
+   
+    // Add the text label for the Y axis
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -margin.left*.8 )
+        .attr("x", margin.top - (height / 2))
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("# operations");
+   
    // append the x line
     focus.append("line")
         .attr("class", "x")

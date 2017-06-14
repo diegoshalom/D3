@@ -84,6 +84,20 @@ var focus = svg.append("g")
 
 // Get the data
 d3.csv("my_csv.csv", function(error, data) {
+
+
+    // Get the mydate
+    d3.csv("date.csv", function(error, mydate) {
+        mydate.forEach(function(d) {
+            //d.date = parseDate(d.date);
+            //d["date"] = +d["date"];
+            console.log(mydate[0].date)
+    });
+    
+
+
+
+
     data.forEach(function(d) {
         //d.date = parseDate(d.date);
         d.date = new Date(parseInt(d.date)*1000); //parseDate(d.date);
@@ -131,11 +145,17 @@ d3.csv("my_csv.csv", function(error, data) {
    
 	svg.append("text")
         .attr("x", (width / 2))             
-        .attr("y", 0 - (margin.top / 2))
+        .attr("y", 0 - (margin.top / 2 ))
         .attr("text-anchor", "middle")  
-        .style("font-size", "16px")         
+        .style("font-size", "16px")                 
         .text("Number of operations uploaded to our servers");
 
+	svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 )
+        .attr("text-anchor", "middle")  
+        .style("font-size", "12px")         
+        .text("Last update: " + mydate[0].date);        
 
 
    // append the x line
@@ -250,6 +270,6 @@ d3.csv("my_csv.csv", function(error, data) {
 	}
 
 });
-
+});
 </script>
 </body>

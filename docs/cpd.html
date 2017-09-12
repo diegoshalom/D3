@@ -63,7 +63,7 @@ var xAxis = d3.svg.axis().scale(x)
 // Define the line
 var valueline = d3.svg.line()
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.close); });
+    .y(function(d) { return y(d.count); });
 
 // Adds the svg canvas
 var svg = d3.select("body")
@@ -87,7 +87,7 @@ d3.csv("CuentasPorDia.csv", function(error, data) {
     data.forEach(function(d) {
         //d.date = parseDate(d.date);
         d.date = new Date(parseInt(d.date)*1000); //parseDate(d.date);
-        d.close = +d.close + 450000;
+        d.count = +d.count;
     });
 
     var lastupdate = d3.max(data, function(d) { return d.date; });
@@ -95,8 +95,8 @@ d3.csv("CuentasPorDia.csv", function(error, data) {
 
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.date; }));
-//    y.domain([  200000    , d3.max(data, function(d) { return d.close; })]);
-    y.domain([  d3.min(data, function(d) { return d.close; })    , d3.max(data, function(d) { return d.close; })]);
+//    y.domain([  200000    , d3.max(data, function(d) { return d.count; })]);
+    y.domain([  d3.min(data, function(d) { return d.count; })    , d3.max(data, function(d) { return d.count; })]);
 
 
     // Add the valueline path.
@@ -130,14 +130,14 @@ d3.csv("CuentasPorDia.csv", function(error, data) {
         .attr("x", margin.top - (height / 2))
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("# operations");
+        .text("# operations / day");
    
 	svg.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2 ))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px")                 
-        .text("Number of operations uploaded to our servers");
+        .text("Number of operations per day");
 
 	svg.append("text")
         .attr("x", (width / 2))             
@@ -220,42 +220,42 @@ d3.csv("CuentasPorDia.csv", function(error, data) {
 		focus.select("circle.y")
 		    .attr("transform",
 		          "translate(" + x(d.date) + "," +
-		                         y(d.close) + ")");
+		                         y(d.count) + ")");
 
 		focus.select("text.y1")
 		    .attr("transform",
 		          "translate(" + x(d.date) + "," +
-		                         y(d.close) + ")")
-		    .text(d.close);
+		                         y(d.count) + ")")
+		    .text(d.count);
 
 		focus.select("text.y2")
 		    .attr("transform",
 		          "translate(" + x(d.date) + "," +
-		                         y(d.close) + ")")
-		    .text(d.close);
+		                         y(d.count) + ")")
+		    .text(d.count);
 
 		focus.select("text.y3")
 		    .attr("transform",
 		          "translate(" + x(d.date) + "," +
-		                         y(d.close) + ")")
+		                         y(d.count) + ")")
 		    .text(formatDate(d.date));
 
 		focus.select("text.y4")
 		    .attr("transform",
 		          "translate(" + x(d.date) + "," +
-		                         y(d.close) + ")")
+		                         y(d.count) + ")")
 		    .text(formatDate(d.date));
 
 		focus.select(".x")
 		    .attr("transform",
 		          "translate(" + x(d.date) + "," +
-		                         y(d.close) + ")")
-		               .attr("y2", height - y(d.close));
+		                         y(d.count) + ")")
+		               .attr("y2", height - y(d.count));
 
 		focus.select(".y")
 		    .attr("transform",
 		          "translate(" + width * -1 + "," +
-		                         y(d.close) + ")")
+		                         y(d.count) + ")")
 		               .attr("x2", width + width);
 	}
 

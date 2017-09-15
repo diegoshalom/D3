@@ -130,14 +130,14 @@ d3.csv("CuentasAcumuladasPorDia.csv", function(error, data) {
         .attr("x", margin.top - (height / 2))
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("# operations / day");
+        .text("# operations");
    
 	svg.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2 ))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px")                 
-        .text("Number of operations per day");
+        .text("Number of operations uploaded to our servers");
 
 	svg.append("text")
         .attr("x", (width / 2))             

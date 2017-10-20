@@ -1,0 +1,30 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+Select plot:
+<select id="GraficoSelect"> 
+    <option value="CuentasAcumuladasPorDia.json" selected>Cumulative operations</option>
+    <option value="CuentasPorDia.json">Operations per day</option>
+    <option value="UsuariosActivosPorDia.json">Active users</option>
+</select>
+
+<div id="mycontainer" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
+
+<script src="archivo.js"></script>
+
+<script type="text/javascript">
+
+var filename = [];
+
+$( "#GraficoSelect" ).change(function() {  
+    
+    filename =  $("#GraficoSelect option:selected").val() 
+    updateGraph(filename,'mycontainer');
+});
+filename =  $("#GraficoSelect option:selected").val() 
+updateGraph(filename,'mycontainer');
+
+
+</script>
+

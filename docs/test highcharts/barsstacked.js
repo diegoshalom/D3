@@ -5,6 +5,7 @@ $.getJSON('data.json', function (data) {
     var nombres = [];
     var valores_correctos = [];
     var valores_incorrectos = [];
+    var valores_nochequeados = [];
     var porcentaje = true;
 
     switch (sort_criterio) {
@@ -31,6 +32,7 @@ $.getJSON('data.json', function (data) {
         nombres.push(d.name);
         valores_correctos.push(d.correcto);
         valores_incorrectos.push(d.incorrecto);
+        valores_nochequeados.push(d.nochequeado);
     }, this);
 
 
@@ -91,6 +93,9 @@ $.getJSON('data.json', function (data) {
     }, {
         name: 'Incorectos',
         data: valores_incorrectos
+    }, {
+        name: 'No chequeados',
+        data: valores_nochequeados
     }]    
 })
 

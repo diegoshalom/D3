@@ -1,162 +1,27 @@
 [{
          "name": "luis",
          "correcto": 2,
-         "incorrecto": 5
-     }, {
+         "incorrecto": 5,
+         "nochequeado": 1     
+         }, {
          "name": "ana",
          "correcto": 4,
-         "incorrecto": 3
-     }, {
+         "incorrecto": 3,
+         "nochequeado": 2     
+         }, {
          "name": "pepe",
          "correcto": 8,
-         "incorrecto": 1
+         "incorrecto": 1,
+         "nochequeado": 1              
      },{
          "name": "juan",
          "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     },{
-         "name": "juan",
-         "correcto": 10,
-         "incorrecto": 7
-     }, {
-         "name": "luis",
-         "correcto": 2,
-         "incorrecto": 5
-     }, {
-         "name": "ana",
-         "correcto": 4,
-         "incorrecto": 3
-     }, {
-         "name": "pepe",
-         "correcto": 8,
-         "incorrecto": 1
-     }, {
+         "incorrecto": 7,
+         "nochequeado": 0              
+    },{         
          "name": "carlos",
          "correcto": 0,
-         "incorrecto": 7
+         "incorrecto": 7,
+         "nochequeado": 1              
      }
 ]

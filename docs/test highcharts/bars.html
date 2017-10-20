@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+Ordenar por: <select id="partidoSEL"> 
+    <option value="correcto" selected>Correcto</option>
+    <option value="incorrecto">Incorrecto</option>
+    <option value="porcentajecorrecto">Porcentaje Correcto</option>
+    <option value="porcentajeincorrecto">Porcentaje Incorrecto</option>
+</select>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script src="barsstacked.js"></script>
+
+<script type="text/javascript">
+
+$( "#partidoSEL" ).change(function() {  
+  updateGraph($("#partidoSEL option:selected").val());
+});
+updateGraph("correcto");
+
+
+
+</script>

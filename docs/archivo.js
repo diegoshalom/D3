@@ -19,6 +19,15 @@ $.getJSON(GraficoSeleccionado, function (data) {
             titulo = "Active users per day"
             ylabel = "# Userrs"    
             break;    
+        case "UsuariosActivosPorSemana.json":
+            titulo = "Active users per Week"
+            ylabel = "# Userrs"    
+            break;    
+        case "UsuariosActivosPorMes.json":
+            titulo = "Active users per Month"
+            ylabel = "# Userrs"    
+            break;    
+
         default:
             break;
     }

@@ -5,28 +5,53 @@ $.getJSON(GraficoSeleccionado, function (data) {
 
     var titulo = [];    
     var ylabel = [];
+    var xlabel = [];
+    var xaxistype = [];
 
     switch (GraficoSeleccionado) {
         case "CuentasAcumuladasPorDia.json":
             titulo = "Number of operations uploaded to our servers"
             ylabel = "# operations"
+            xlabel = 'Date'
+            xaxistype = 'datetime'
             break;
         case "CuentasPorDia.json":
             titulo = "Number of operations per day"
             ylabel = "# operations / day"
+            xlabel = 'Date'
+            xaxistype = 'datetime'
             break;    
         case "UsuariosActivosPorDia.json":
             titulo = "Active users per day"
-            ylabel = "# Userrs"    
+            ylabel = "# Users"    
+            xlabel = 'Date'
+            xaxistype = 'datetime'
             break;    
         case "UsuariosActivosPorSemana.json":
             titulo = "Active users per Week"
-            ylabel = "# Userrs"    
+            ylabel = "# Users"    
+            xlabel = 'Date'
+            xaxistype = 'datetime'
             break;    
         case "UsuariosActivosPorMes.json":
             titulo = "Active users per Month"
-            ylabel = "# Userrs"    
+            ylabel = "# Users"    
+            xlabel = 'Date'
+            xaxistype = 'datetime'
             break;    
+        case "TiempoActivoPorUsuario.json":
+            titulo = "Active time in days"
+            ylabel = "# Users"    
+            xlabel = 'Time [days]'
+            xaxistype = ''
+            break;    
+        case "UsuriosPorNivel.json":
+            titulo = "Users pel level"
+            ylabel = "# Users"    
+            xlabel = 'Level'
+            xaxistype = ''
+            break;    
+
 
         default:
             break;
@@ -55,9 +80,9 @@ $.getJSON(GraficoSeleccionado, function (data) {
                     'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
         },
         xAxis: {
-            type: 'datetime',
+            type: xaxistype,
             title: {
-                text: 'Date'
+                text: xlabel
             }
         },
         yAxis: {

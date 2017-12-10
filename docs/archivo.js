@@ -46,7 +46,13 @@ $.getJSON(GraficoSeleccionado, function (data) {
             xaxistype = ''
             break;    
         case "UsuriosPorNivel.json":
-            titulo = "Users pel level"
+            titulo = "Users per level"
+            ylabel = "# Users"    
+            xlabel = 'Level'
+            xaxistype = ''
+            break;    
+        case "UsuriosAcumuladosPorNivel.json":
+            titulo = "Cumulative Users per level"
             ylabel = "# Users"    
             xlabel = 'Level'
             xaxistype = ''

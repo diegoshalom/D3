@@ -4,6 +4,17 @@ function updateGraph(){
     
         Highcharts.chart('container', {
             chart: {
+                zoomType: 'x',
+                //borderWidth: 1,
+                resetZoomButton: {
+                    position: {
+                        align: 'left', // by default
+                        // verticalAlign: 'top', // by default
+                        //x: -10,
+                        //y: 10
+                    },
+                    //relativeTo: 'chart'
+                },
               type: 'spline'
             },
             title: {

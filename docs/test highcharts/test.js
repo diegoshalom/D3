@@ -8,10 +8,7 @@ function updateGraph(){
                 //borderWidth: 1,
                 resetZoomButton: {
                     position: {
-                        align: 'left', // by default
-                        // verticalAlign: 'top', // by default
-                        //x: -10,
-                        //y: 10
+                        align: 'left',
                     },
                     //relativeTo: 'chart'
                 },

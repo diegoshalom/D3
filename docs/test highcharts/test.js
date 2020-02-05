@@ -12,7 +12,7 @@ function updateGraph(){
                     },
                     //relativeTo: 'chart'
                 },
-              type: 'spline'
+              type: 'line'
             },
             title: {
               text: 'Live Data (CSV)'

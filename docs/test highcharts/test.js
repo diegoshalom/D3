@@ -23,7 +23,15 @@ function updateGraph(){
             subtitle: {
               text: 'Data input from a remote CSV file'
             },
-          
+            plotOptions: {
+              series: {
+                  lineWidth: 1,
+                  marker: {
+                    enabled: true,
+                    radius: 2,
+                  }
+              }
+            },
             data: {
               csvURL: 'https://dl.dropbox.com/s/x1s4i8gtznll2dj/tempe_mientras.csv?dl=0', 
               //csvURL: 'https://dl.dropbox.com/s/844z5wp7nx2dkie/tempe_mientras.csv?dl=0',
